@@ -1,0 +1,4 @@
+﻿  dllmain.cpp
+C:\Users\luanm\source\repos\Dishonored2\Dishonored2\dllmain.cpp(44,166): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\luanm\source\repos\Dishonored2\Dishonored2\dllmain.cpp(48,166): warning C4305: '-=': truncation from 'double' to 'float'
+  Dishonored2.vcxproj -> C:\Users\luanm\source\repos\Dishonored2\x64\Debug\Dishonored2.dll
