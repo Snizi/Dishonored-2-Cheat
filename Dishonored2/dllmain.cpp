@@ -7,11 +7,11 @@
 
 
 
-DWORD WINAPI HackThread(HMODULE hModule)
+DWORD WINAPI HackThread(HMODULE)
 {
     toogle cheats;
 
-    uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"Dishonored2.exe");
+    uintptr_t moduleBase = reinterpret_cast<GetModuleHandle>(L"Dishonored2.exe");
 
     ent* localPlayer = *(ent**)(moduleBase + 0x02ED4580);
 
@@ -101,10 +101,9 @@ BOOL APIENTRY DllMain( HMODULE hModule,
                        LPVOID lpReserved
                      )
 {
-    switch (ul_reason_for_call)
+if(ul_reason_for_call == DLL_PROCESS_ATTACH
     {
-    case DLL_PROCESS_ATTACH:
-       CreateThread(0, 0, (LPTHREAD_START_ROUTINE)HackThread, 0, 0, 0);
+       CreateThread(nullptr, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(HackThread), hModule, 0, nullptr);
     }
     return TRUE;
 }
